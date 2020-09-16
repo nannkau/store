@@ -1,0 +1,56 @@
+package domain;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Table(name = "supplier")
+public class Supplier implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "supplierId")
+    private  Integer supplierId;
+    @Column(name = "name",length = 150)
+    private String name;
+    @Column(name = "phoneNumber",length = 15)
+    private String phoneNumber;
+    @Column(name = "address",length = 150)
+    private String address;
+    @OneToMany(mappedBy = "supplier")
+    private List<Product> products= new ArrayList<>();
+
+    public Integer getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(Integer supplierId) {
+        this.supplierId = supplierId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+}
