@@ -2,6 +2,8 @@ package domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -24,8 +26,10 @@ public class Product implements Serializable {
     @ManyToOne
     @JoinColumn(name="categoryId")
     private Category category;
-    @OneToOne(mappedBy = "product")
-    private InvoiceDetail invoiceDetail;
+    @OneToMany(mappedBy = "product")
+    private List<InvoiceDetail> invoiceDetails=new ArrayList<>();
+    @OneToMany(mappedBy = "product")
+    private List<RecevieDetail> recevieDetails= new ArrayList<>();
 
     public Integer getProductId() {
         return productId;
@@ -65,5 +69,37 @@ public class Product implements Serializable {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<InvoiceDetail> getInvoiceDetails() {
+        return invoiceDetails;
+    }
+
+    public void setInvoiceDetails(List<InvoiceDetail> invoiceDetails) {
+        this.invoiceDetails = invoiceDetails;
+    }
+
+    public List<RecevieDetail> getRecevieDetails() {
+        return recevieDetails;
+    }
+
+    public void setRecevieDetails(List<RecevieDetail> recevieDetails) {
+        this.recevieDetails = recevieDetails;
     }
 }

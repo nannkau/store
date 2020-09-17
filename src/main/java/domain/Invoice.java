@@ -26,7 +26,51 @@ public class Invoice implements Serializable {
     @OneToMany(mappedBy = "invoice")
     private List<InvoiceDetail> invoiceDetails= new ArrayList<>();
 
+    public Integer getInvoiceId() {
+        return invoiceId;
+    }
 
+    public void setInvoiceId(Integer invoiceId) {
+        this.invoiceId = invoiceId;
+    }
 
+    public Date getCreateDate() {
+        return createDate;
+    }
 
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Integer getPriceTotal() {
+        return priceTotal;
+    }
+
+    public void setPriceTotal(Integer priceTotal) {
+        this.priceTotal = priceTotal;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Consumer getConsumer() {
+        return consumer;
+    }
+
+    public void setConsumer(Consumer consumer) {
+        this.consumer = consumer;
+    }
+
+    public List<InvoiceDetail> getInvoiceDetails() {
+        return invoiceDetails;
+    }
+
+    public void setInvoiceDetails(List<InvoiceDetail> invoiceDetails) {
+        this.invoiceDetails = invoiceDetails;
+    }
 }

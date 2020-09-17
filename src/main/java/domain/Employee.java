@@ -28,6 +28,8 @@ public class Employee implements Serializable {
     private User user;
     @OneToMany(mappedBy = "employee")
     private List<Invoice> invoices= new ArrayList<>();
+    @OneToMany(mappedBy = "employee")
+    private List<Receive> receives= new ArrayList<>();
 
     public Integer getEmployeeId() {
         return employeeId;
@@ -75,5 +77,29 @@ public class Employee implements Serializable {
 
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
+    }
+
+    public List<Receive> getReceives() {
+        return receives;
+    }
+
+    public void setReceives(List<Receive> receives) {
+        this.receives = receives;
     }
 }

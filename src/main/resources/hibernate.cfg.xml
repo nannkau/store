@@ -12,6 +12,9 @@
     <mapping class="domain.Category"/>
     <mapping class="domain.Employee"/>
     <mapping class="domain.InvoiceDetail"/>
+    <mapping class="domain.Receive"/>
+    <mapping class="domain.RecevieDetail"/>
+
 
   </session-factory>
 </hibernate-configuration>
