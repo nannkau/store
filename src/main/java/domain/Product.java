@@ -20,6 +20,8 @@ public class Product implements Serializable {
     private Integer price;
     @Column(name = "image",length = 100)
     private String image;
+    @Column(name = "flagDelete", nullable = false)
+    private String flagDelete;
     @ManyToOne
     @JoinColumn(name="supplierId")
     private Supplier supplier;
@@ -101,5 +103,13 @@ public class Product implements Serializable {
 
     public void setRecevieDetails(List<RecevieDetail> recevieDetails) {
         this.recevieDetails = recevieDetails;
+    }
+
+    public String getFlagDelete() {
+        return flagDelete;
+    }
+
+    public void setFlagDelete(String flagDelete) {
+        this.flagDelete = flagDelete;
     }
 }

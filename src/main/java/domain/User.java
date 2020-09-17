@@ -23,6 +23,8 @@ public class User implements Serializable {
     private String email;
     @Column(name = "password", nullable = false)
     private String password;
+    @Column(name = "flagDelete", nullable = false)
+    private String flagDelete;
 
     @ManyToMany
     @JoinTable(
@@ -77,4 +79,11 @@ public class User implements Serializable {
         this.roles = roles;
     }
 
+    public String getFlagDelete() {
+        return flagDelete;
+    }
+
+    public void setFlagDelete(String flagDelete) {
+        this.flagDelete = flagDelete;
+    }
 }

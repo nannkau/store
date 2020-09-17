@@ -23,6 +23,8 @@ public class Role implements Serializable {
 
     @Column(name = "name", nullable = false)
     private String name;
+    @Column(name = "flagDelete", nullable = false)
+    private String flagDelete;
 
     @ManyToMany(mappedBy = "roles")
     private Set<User> users;
@@ -58,4 +60,11 @@ public class Role implements Serializable {
         this.users = users;
     }
 
+    public String getFlagDelete() {
+        return flagDelete;
+    }
+
+    public void setFlagDelete(String flagDelete) {
+        this.flagDelete = flagDelete;
+    }
 }

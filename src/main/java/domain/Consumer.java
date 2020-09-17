@@ -19,6 +19,8 @@ public class Consumer {
     private String phoneNumber;
     @Column(name="email",length = 150)
     private String email;
+    @Column(name = "flagDelete", nullable = false)
+    private String flagDelete;
     @OneToMany(mappedBy = "consumer")
     private List<Invoice> invoices= new ArrayList<>();
 
@@ -68,5 +70,13 @@ public class Consumer {
 
     public void setInvoices(List<Invoice> invoices) {
         this.invoices = invoices;
+    }
+
+    public String getFlagDelete() {
+        return flagDelete;
+    }
+
+    public void setFlagDelete(String flagDelete) {
+        this.flagDelete = flagDelete;
     }
 }

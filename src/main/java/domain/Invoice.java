@@ -17,6 +17,8 @@ public class Invoice implements Serializable {
     private Date createDate;
     @Column(name = "priceTotal")
     private Integer priceTotal;
+    @Column(name = "flagCancel", nullable = false)
+    private String flagCancel;
     @ManyToOne
     @JoinColumn(name = "employeeId")
     private Employee employee;
@@ -72,5 +74,13 @@ public class Invoice implements Serializable {
 
     public void setInvoiceDetails(List<InvoiceDetail> invoiceDetails) {
         this.invoiceDetails = invoiceDetails;
+    }
+
+    public String getFlagCancel() {
+        return flagCancel;
+    }
+
+    public void setFlagCancel(String flagCancel) {
+        this.flagCancel = flagCancel;
     }
 }

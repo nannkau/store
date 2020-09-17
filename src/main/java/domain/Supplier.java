@@ -19,6 +19,8 @@ public class Supplier implements Serializable {
     @Column(name = "address",length = 150)
     private String address;
     @OneToMany(mappedBy = "supplier")
+    @Column(name = "flagDelete", nullable = false)
+    private String flagDelete;
     private List<Product> products= new ArrayList<>();
 
     public Integer getSupplierId() {
@@ -59,5 +61,13 @@ public class Supplier implements Serializable {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public String getFlagDelete() {
+        return flagDelete;
+    }
+
+    public void setFlagDelete(String flagDelete) {
+        this.flagDelete = flagDelete;
     }
 }

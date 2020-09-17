@@ -24,6 +24,8 @@ public class Employee implements Serializable {
     @DateTimeFormat(pattern ="dd/MM/yyyy")
     @Column(name = "birthDate")
     private String birthDate;
+    @Column(name = "flagDelete", nullable = false)
+    private String flagDelete;
     @OneToOne(mappedBy = "employee")
     private User user;
     @OneToMany(mappedBy = "employee")
@@ -101,5 +103,13 @@ public class Employee implements Serializable {
 
     public void setReceives(List<Receive> receives) {
         this.receives = receives;
+    }
+
+    public String getFlagDelete() {
+        return flagDelete;
+    }
+
+    public void setFlagDelete(String flagDelete) {
+        this.flagDelete = flagDelete;
     }
 }

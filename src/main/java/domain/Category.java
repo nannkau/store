@@ -15,6 +15,8 @@ public class Category implements Serializable {
 
     @Column(name = "name",length = 150)
     private String name;
+    @Column(name = "flagDelete", nullable = false)
+    private String flagDelete;
 
     @OneToMany(mappedBy="category", cascade=CascadeType.ALL)
     List<Product> products;
@@ -43,4 +45,13 @@ public class Category implements Serializable {
     public void setProducts(List<Product> products) {
         this.products = products;
     }
+
+    public String getFlagDelete() {
+        return flagDelete;
+    }
+
+    public void setFlagDelete(String flagDelete) {
+        this.flagDelete = flagDelete;
+    }
 }
+
