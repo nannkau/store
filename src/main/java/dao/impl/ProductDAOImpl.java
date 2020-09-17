@@ -7,9 +7,11 @@ import dto.ProductDTO;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.modelmapper.ModelMapper;
 import pagination.PaginationResult;
 import utils.HibernateUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDAOImpl implements ProductDAO {
@@ -23,7 +25,16 @@ public class ProductDAOImpl implements ProductDAO {
         Query<Product> query = session.createQuery(sql, Product.class);
         PaginationResult<Product> result = new PaginationResult<Product>(query, page, maxResult, maxNavigationPage);
         List<Product> products = result.getList();
-        return null;
+        List<ProductDTO> productDTOS= new ArrayList<>();
+        for (Product p: products
+             ) {
+            ModelMapper modelMapper = new ModelMapper();
+            ProductDTO productDTO = modelMapper.map(p, ProductDTO.class);
+            productDTOS.add(productDTO);
+
+        }
+
+        return productDTOS;
     }
 
     @Override

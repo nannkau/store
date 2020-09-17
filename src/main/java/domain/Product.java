@@ -26,6 +26,9 @@ public class Product implements Serializable {
     @JoinColumn(name="supplierId")
     private Supplier supplier;
     @ManyToOne
+    @JoinColumn(name="describe")
+    private String describe;
+    @ManyToOne
     @JoinColumn(name="categoryId")
     private Category category;
     @OneToMany(mappedBy = "product")
@@ -111,5 +114,13 @@ public class Product implements Serializable {
 
     public void setFlagDelete(String flagDelete) {
         this.flagDelete = flagDelete;
+    }
+
+    public String getDescribe() {
+        return describe;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
     }
 }
