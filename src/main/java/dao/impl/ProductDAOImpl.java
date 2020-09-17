@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 @Repository
 @Transactional
-public class ProductDAOImpl implements ProductDAO {
+public class ProductDAOImpl implements ProductDAO  {
     @Override
     public List<ProductDTO> getProductList(int page, int maxResult, int maxNavigationPage) {
         SessionFactory factory = HibernateUtils.getSessionFactory();
