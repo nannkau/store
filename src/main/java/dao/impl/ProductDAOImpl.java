@@ -8,12 +8,15 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import pagination.PaginationResult;
 import utils.HibernateUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Repository
+@Transactional
 public class ProductDAOImpl implements ProductDAO {
     @Override
     public List<ProductDTO> getProductList(int page, int maxResult, int maxNavigationPage) {

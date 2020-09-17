@@ -18,9 +18,9 @@ public class Supplier implements Serializable {
     private String phoneNumber;
     @Column(name = "address",length = 150)
     private String address;
-    @OneToMany(mappedBy = "supplier")
     @Column(name = "flagDelete", nullable = false)
     private String flagDelete;
+    @OneToMany(mappedBy = "supplier")
     private List<Product> products= new ArrayList<>();
 
     public Integer getSupplierId() {

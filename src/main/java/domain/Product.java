@@ -22,12 +22,12 @@ public class Product implements Serializable {
     private String image;
     @Column(name = "flagDelete", nullable = false)
     private String flagDelete;
+    @Column(name = "describe",length = 400)
+    private String describe;
     @ManyToOne
     @JoinColumn(name="supplierId")
     private Supplier supplier;
-    @ManyToOne
-    @JoinColumn(name="describe")
-    private String describe;
+
     @ManyToOne
     @JoinColumn(name="categoryId")
     private Category category;

@@ -9,5 +9,9 @@
         <put-attribute name="title" value="home"/>
         <put-attribute name="content" value="/views/home/index.jsp" />
     </definition>
+    <definition name="product.index" extends="bg">
+        <put-attribute name="title" value="home"/>
+        <put-attribute name="content" value="/views/product/index.jsp" />
+    </definition>
 
 </tiles-definitions>
